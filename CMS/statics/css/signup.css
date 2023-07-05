@@ -1,0 +1,307 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.header {
+    background-image: linear-gradient(to right, #5bcdfa, #00ffff);
+    height: 95vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bd {
+    height: 100%;
+    width: auto;
+    text-align: center;
+}
+
+
+/* SIGN IN CARD  */
+
+@keyframes signIn {
+    0% {
+        height: 0px;
+    }
+    100% {
+        height: 510px;
+    }
+}
+
+.signin-card {
+    display: inline-block;
+    border-radius: 0px 0px 12px 12px;
+    box-shadow: inset;
+    width: 30%;
+    height: 565px;
+    background-color: black;
+    position: relative;
+    animation-name: signIn;
+    animation-duration: 1s;
+    text-align: center;
+}
+.message{
+    width: 100%;
+    margin-bottom: 4px;
+    opacity: 0.0;
+    animation-name: msg-dis;
+    animation-duration: 5s;
+}
+@keyframes msg-dis {
+    0%{
+        opacity: 0.0;
+    }
+    20%{
+        opacity: 0.0;
+    }
+    40%{
+        opacity: 1.0;
+    }
+    100%{
+        opacity: 0.0;
+    }
+}
+.signup-card {
+    display: inline-block;
+    border-radius: 0px 0px 12px 12px;
+    box-shadow: inset;
+    width: 30%;
+    height: 400px;
+    background-color: black;
+    position: relative;
+}
+
+@keyframes signin-card-p-animation {
+    0% {
+        opacity: 0.0;
+    }
+    50% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}
+
+.signin-card-p {
+    color: #252232;
+    font-family: Arial;
+    font-size: 40px;
+    font-weight: bold;
+    opacity: 1.0;
+    align-items: center;
+    animation-name: signin-card-p-animation;
+    animation-duration: 2s;
+}
+
+@keyframes signin-card-input-animation {
+    0% {
+        opacity: 0.0;
+    }
+    50% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}
+
+.signin-card-input {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 250px;
+    height: 52px;
+    
+    /* margin-bottom: 5px; */
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: black;
+    animation-name: signin-card-input-animation;
+    animation-duration: 2s;
+}
+
+input,
+select,
+textarea {
+    color: white;
+}
+
+textarea:focus,
+input:focus {
+    color: white;
+}
+
+
+/* enable absolute positioning  */
+
+.inner-addon {
+    position: relative;
+}
+
+
+/* style icon */
+
+.inner-addon .glyphicon {
+    position: absolute;
+    padding: 2px;
+    pointer-events: none;
+    animation-name: signin-card-input-animation;
+    animation-duration: 2s;
+}
+
+
+/* align icon */
+
+.left-addon .glyphicon {
+    left: 78px;
+    top: 96px;
+}
+
+.right-addon .glyphicon {
+    right: 0px;
+}
+
+
+/* add padding  */
+
+.left-addon input {
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.right-addon input {
+    padding-right: 0px;
+}
+
+
+/* password*/
+
+.inner-addon {
+    position: relative;
+}
+
+
+/* style icon */
+
+.inner-addon .pass {
+    position: absolute;
+    padding: 2px;
+    pointer-events: none;
+    animation-name: signin-card-input-animation;
+    animation-duration: 2s;
+}
+
+
+/* align icon */
+
+.left-addon .pass {
+    left: 78px;
+    top: 146px;
+}
+
+.right-addon .pass {
+    right: 0px;
+}
+
+
+/* add padding  */
+
+.left-addon input {
+    padding-left: 0px;
+}
+
+.right-addon input {
+    padding-right: 0px;
+}
+
+
+/* Sign In Button */
+
+@keyframes signin-btn-animation {
+    0% {
+        opacity: 0.0;
+    }
+    50% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}
+
+.button-33 {
+    background-color: #c2fbd7;
+    margin: 30px;
+    margin-top: 30px;
+    border-radius: 100px;
+    box-shadow: rgba(44, 177, 187, 0.2) 0 -25px 18px -14px inset, rgba(44, 187, 161, 0.15) 0 1px 2px, rgba(44, 187, 175, 0.15) 0 2px 4px, rgba(44, 80, 187, 0.15) 0 4px 8px, rgba(44, 187, 187, 0.15) 0 8px 16px, rgba(44, 168, 187, 0.15) 0 16px 32px;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    animation-name: signin-btn-animation;
+    animation-duration: 2s;
+}
+
+.button-33:hover {
+    box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
+}
+
+
+/* Sign up link */
+
+@keyframes signup-link-animation {
+    0% {
+        opacity: 0.0;
+    }
+    50% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}
+
+.signup-link:link {
+    text-decoration: none;
+    color: #A7AAB6;
+    text-decoration-line: none;
+    animation-name: signup-link-animation;
+    animation-duration: 2s;
+}
+
+.signup-link:visited {
+    text-decoration: none;
+    color: #A7AAB6;
+}
+
+.signup-link:hover {
+    text-decoration: none;
+    color: #43CAEB;
+}
+
+.signup-link:active {
+    text-decoration: none;
+    color: #A7AAB6;
+}
+
+.radio{
+    
+    color: #5B627D;
+    display: inline;
+    animation-name: signin-card-input-animation;
+    animation-duration: 2s;
+}

@@ -1,0 +1,440 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.header {
+    /* background-image: url("gradient.png"); */
+    background-image: linear-gradient(to right, #5bcdfa, #00ffff);
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gav{
+    color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gav a:link{
+    text-decoration: none;
+    
+    font-size: 24px;
+}
+.gav a:visited{
+    text-decoration: none;
+    color: currentcolor;
+    font-size: 24px;
+}
+.gav a:hover{
+    text-decoration: none;
+    color: orange;
+    font-size: 24px;
+}
+.gav a:active{
+    text-decoration: none;
+    color: orange;
+    font-size: 24px;
+}
+.gav a[tabindex]:focus {
+    color:blue;
+    outline: none;
+}
+.new-admission{
+    width: 100%;
+    height: 100vh;
+    display:none;
+    background-color: black;
+    opacity: 0.5;
+}
+
+.admission-fee{
+    width: 100%;
+    height: 100vh;
+    display: none;
+    
+    
+}
+
+.card{
+    display: inline-block;
+    border-radius: 12px 12px 12px 12px;
+    box-shadow: inset;
+    width: 30%;
+    height: 400px;
+    background-color: black;
+    position: relative;
+}
+
+.head{
+    display: flex;
+    justify-content: center;
+}
+
+input,
+select,
+textarea {
+    color: white;
+    
+}
+
+textarea:focus,
+input:focus {
+    color: white;
+}
+
+.centre{
+
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+}
+.signin-card-input {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 250px;
+    height: 52px;
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin-bottom: 4px;
+    background-color: black;
+    
+}
+
+.button-7 {
+  background-color: #0095ff;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px .8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.button-7:hover,
+.button-7:focus {
+  background-color: #07c;
+}
+
+.button-7:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+}
+
+.button-7:active {
+  background-color: #0064bd;
+  box-shadow: none;
+}
+
+.pay-0{
+    display:flex;
+}
+
+.signin-card-input-fee {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100px;
+    height: 32px;
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin-bottom: 0px;
+    background-color: black;
+    
+}
+.head h1{
+    color: #252232;
+    font-family: Arial;
+    font-size: 40px;
+    font-weight: bold;
+    opacity: 1.0;
+    align-items: center;
+}
+
+.admission-fee-form{
+    display: flex;
+    justify-content: center;
+}
+
+.top-bar{
+    background-color: antiquewhite;
+    width: 100%;
+    height: 7vh;
+    display: flex;
+    justify-content: space-evenly;
+}
+.button-33 {
+    background-color: #c2fbd7;
+    margin: 93px;
+    margin-top: 50px;
+    border-radius: 100px;
+    box-shadow: rgba(44, 177, 187, 0.2) 0 -25px 18px -14px inset, rgba(44, 187, 161, 0.15) 0 1px 2px, rgba(44, 187, 175, 0.15) 0 2px 4px, rgba(44, 80, 187, 0.15) 0 4px 8px, rgba(44, 187, 187, 0.15) 0 8px 16px, rgba(44, 168, 187, 0.15) 0 16px 32px;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    animation-name: signin-btn-animation;
+    animation-duration: 2s;
+}
+
+.button-33:hover {
+    box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
+}
+.top-bar form{
+    width: 100%;
+}
+.course{
+    display: flex;
+    width: 33%;
+    justify-content: space-evenly;
+}
+
+.year{
+    display: flex;
+    width: 33%;
+    justify-content: space-evenly;
+}
+
+.form-div{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.form-div label{
+    font-size: xx-large;
+}
+.form-div select{
+    font-size: larger;
+    height: 51px;
+    border: transparent;
+    background-color: unset;
+    color: black;
+}
+
+.top-bar input{
+    color: black;
+    background-color: transparent;
+    border: none;
+    width: 100px;
+    height: 50px;
+    font-size: x-large;
+}
+
+.result{
+    width: 100%;
+    height:90vh;
+    display:none;
+}
+
+  /* Footer */
+
+  @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');  
+section {  
+    padding: 0px 0;  
+}  
+section .section-title {  
+    text-align: center;  
+    color: #007b5e;  
+    margin-bottom: 50px;  
+    text-transform: uppercase;  
+}  
+#footer {  
+    background: black;  
+}  
+#footer h5 {  
+   padding-left: 10px;  
+    border-left: 3px solid #eeeeee;  
+    padding-bottom: 6px;  
+    margin-bottom: 20px;  
+    color:#ffffff;  
+}  
+#footer a {  
+    color: #ffffff;  
+    text-decoration: none !important;  
+    background-color: transparent;  
+}  
+#footer ul.social li {  
+    padding: 3px 0;  
+}  
+#footer ul.social li a i {  
+    margin-right: 5px;  
+    font-size:25px;  
+    -webkit-transition: .5s all ease;  
+    -moz-transition: .5s all ease;  
+    transition: .5s all ease;  
+}  
+#footer ul.social li:hover a i {  
+    font-size:30px;  
+    margin-top:-10px;  
+}  
+#footer ul.social li a  
+{  
+    color:#ffffff;  
+}  
+#footer ul.social li a:hover {  
+    color:#eeeeee;  
+}  
+#footer ul.quick-links li a {  
+    color:#ffffff;  
+}  
+#footer ul.quick-links li {  
+    padding: 3px 0;  
+    -webkit-transition: .5s all ease;  
+    -moz-transition: .5s all ease;  
+    transition: .5s all ease;  
+}  
+#footer ul.quick-links li:hover {  
+    padding: 3px 0;  
+    margin-left:5px;  
+    font-weight:700;  
+}  
+#footer ul.quick-links li a i {  
+    margin-right: 5px;  
+}  
+#footer ul.quick-links li:hover a i {  
+    font-weight: 700;  
+}  
+@media (max-width:767px) {  
+#footer h5 {  
+      padding-left: 0;  
+    border-left: transparent;  
+    padding-bottom: 0px;  
+    margin-bottom: 10px;  
+}  
+}  
+
+/* ==================================================TABLE================================= */
+
+table{
+    width:100%;
+    table-layout: fixed;
+  }
+  .tbl-header{
+    background-color: rgba(255,255,255,0.3);
+   }
+  .tbl-content{
+    height:580px;
+    overflow-x:auto;
+    margin-top: 0px;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  th{
+    padding: 20px 15px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 18px;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  td{
+    padding: 0px 15px 15px 15px;
+    text-align: left;
+    vertical-align:middle;
+    font-weight: 300;
+    font-size: 18px;
+    color: #fff;
+    border-bottom: solid 1px rgba(255,255,255,0.1);
+  }
+  
+  
+  /* demo styles */
+  
+  @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+  
+  
+  
+  /* follow me template */
+  .made-with-love {
+    margin-top: 40px;
+    padding: 10px;
+    clear: left;
+    text-align: center;
+    font-size: 10px;
+    font-family: arial;
+    color: #fff;
+  }
+  .made-with-love i {
+    font-style: normal;
+    color: #F50057;
+    font-size: 14px;
+    position: relative;
+    top: 2px;
+  }
+  .made-with-love a {
+    color: #fff;
+    text-decoration: none;
+  }
+  .made-with-love a:hover {
+    text-decoration: underline;
+  }
+  
+  
+  /* for custom scrollbar for webkit browser*/
+  
+  ::-webkit-scrollbar {
+      width: 6px;
+  } 
+  ::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  } 
+  ::-webkit-scrollbar-thumb {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  }
+
+  .toop-bar{
+    background-color: antiquewhite;
+    width: 100%;
+    height: 7vh;
+    display: none;
+    justify-content: space-evenly;
+}
+
+.button{
+    margin-top: 5px;
+    border: none;
+    background-color: transparent;
+    color: white;
+}
+#detail-btn{
+    background-color: transparent;
+    border: none;
+    color: aliceblue;
+    text-transform: capitalize;
+    font-size: revert;
+}

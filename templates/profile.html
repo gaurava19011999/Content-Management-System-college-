@@ -1,0 +1,170 @@
+{%load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/profile.css'%}">
+    <title>CMS</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/profile.js' %}"></script>
+</head>
+
+<body class="p-0 m-0 border-0 bd-example ">
+
+    <!-- Example Code -->
+
+
+    <nav class="navbar   navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'Image/nav-icon.png'%}" alt="Bootstrap" width="30" height="24">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Profile</a>
+                    </li>
+
+                    
+                </ul>
+
+            </div>
+            <div class="d-flex">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}"  >Sign Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Example Code -->
+    <form action="{% url 'profile' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="header">
+            <div class="p-img">
+                <div class="form-input">
+                    <div class="preview">
+                        <img id="file-ip-1-preview">
+                    </div>
+                    <label for="file-ip-1">Upload Image</label>
+                    <input type='file' id="file-ip-1" name="image1" accept="image/*" onchange="showPreview(event);">
+                </div>
+            </div>
+            <div class="p-data">
+                <div class="input-card">
+                        <div>
+                            <h1>Address</h1>
+                        </div>
+                        <div class="input-card-label"><label for="Permanent">Permanent</label></div>
+                        <div class="input-card-i">
+                            <input type="text" name="p_house_no" placeholder="House no./Flat no./Block" required>
+                            <input type="text" name="p_socity" placeholder="Socity/Colony/Appartment" required>
+                            <input type="text" name="p_landmark" placeholder="Landmark" required>
+                            <input type="text" name="p_district" placeholder="District" required>
+                            <input type="text" name="p_state" placeholder="State" required>
+                            <input type="number" name="p_pincode" placeholder="Pincode" required>
+                        </div>
+                        <div class="input-card-label"><label for="Temporary">Temporary</label></div>
+                        <div class="input-card-i">
+                            <input type="text" name="t_house_no" placeholder="House no./Flat no./Block" required>
+                            <input type="text" name="t_socity" placeholder="Socity/Colony/Appartment" required>
+                            <input type="text" name="t_landmark" placeholder="Landmark" required>
+                            <input type="text" name="t_district" placeholder="District" required>
+                            <input type="text" name="t_state" placeholder="State" required>
+                            <input type="number" name="t_pincode" placeholder="Pincode" required>
+                        </div>
+                    </div>
+                    <div class="input-card">
+                        <div>
+                            <h1>Personal Details</h1>
+                        </div>
+                        <div class="input-card-label"><label for="contact-no">Contact Number</label></div>
+                        <div class="input-card-i">
+                            <input type="number" name="personal_no" placeholder="Personal" required>
+                            <input type="number" name="guardian_no" placeholder="Guardian" required>
+                        </div>
+                        <div class="input-card-label"><label for="dob">Date Of Birth</label></div>
+                        <div class="input-card-i">
+                            <input type="date" name="dob" placeholder="Personal" required>
+                        </div>
+                        <div class="input-card-label"><label for="parent-detail">Parent's Detail</label></div>
+                        <div class="input-card-i">
+                            <div class="input-card-label"><label for="father">Father :</label></div>
+                            <input type="text" name="father_f_name" placeholder="First Name" required>
+                            <input type="text " name="father_l_name" placeholder="Last Name">
+                            <div class="input-card-label"><label for="mother">Mother :</label></div>
+                            <input type="text" name="mother_f_name" placeholder="First Name" required>
+                            <input type="text " name="mother_l_name" placeholder="Last Name">
+                        </div>
+                        <div class="input-card-label"><label for="parent-detail">Gender</label></div>
+                        <div class="input-card-i">
+                            <div class="radio">
+                                <br>
+                                <input type="radio"  name="gender" value="male" style="color:white">
+                                <label for="html">Male</label>        
+                                <input type="radio"  name="gender" value="female">
+                                <label for="css">Female</label><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-card">
+                        <div>
+                            <h1>Course Details</h1>
+                        </div>
+                        <div class="input-card-label"><label for="Standard">Standard</label></div>
+                        <div class="input-card-i">
+                        {% comment %} <input type="text" name="dept" placeholder="Department" required> {% endcomment %}
+                            <div class="course">
+                                <label  for="course">Course : </label>
+                                <select name="dept" id="course">
+                                    <option value="MCA">MCA</option>
+                                    <option value="MBA">MBA</option>
+                                    <option value="BCA">BCA</option>
+                                    <option value="BBA">BBA</option>
+                                    <option value="BA.LLB">BA.LLB</option>
+                                    <option value="LLB">LLB</option>
+                                    <option value="B.COM">B.COM</option>
+                                    <option value="B.ed">B.ed</option>
+                                    <option value="B.pharma">B.pharma</option>
+                                    <option value="D.pharma">D.pharma</option>
+                                </select>
+                            </div>
+                            <div class="year">
+                                <label for="year">Year : </label>
+                                <select name="sem" id="year">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-card-label"><label for="Standard">Roll No</label></div>
+                        <div class="input-card-i">
+                            <input type="number" name="institute_roll" placeholder="Institute" required>
+                            <input type="number" name="university_roll" placeholder="University" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="button-28">Submit</button>
+                </div>
+            </div>
+        </form>
+    <div class="footer">
+
+        <!-- footer code is here -->
+    </div>
+    <script src="{% static 'js/profile.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,573 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+@media only screen and (min-width:1050px){
+  
+
+.header {
+    /* background-image: url("gradient.png"); */
+    background: rgb(60,162,255);
+    background: linear-gradient(90deg, rgba(60,162,255,1) 0%, rgba(69,182,240,1) 37%, rgba(0,212,255,1) 100%);
+    height: 92vh;
+    width: 100%;
+    background-repeat: repeat-y;
+    background-size: cover;
+    display: flex;
+}
+
+.p-img{
+    width: 30%;
+    height: 92vh;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-input {
+  width:350px;
+  padding:20px;
+  background:white;
+  border-radius: 2px;
+  box-shadow: -3px -3px 7px rgba(94, 104, 121, 0.377),
+              3px 3px 7px rgba(94, 104, 121, 0.377);
+    
+}
+
+.form-input img {
+    width:100%;
+    display:none;
+    margin-bottom:30px;
+  }
+
+  .form-input input {
+    display:none;
+  }
+  .form-input label {
+    display:block;
+    width:45%;
+    height:45px;
+    margin-left: 25%;
+    line-height:50px;
+    text-align:center;
+    background:#1172c2;
+    color:#fff;
+    font-size:15px;
+    font-family:"Open Sans",sans-serif;
+    text-transform:Uppercase;
+    font-weight:600;
+    border-radius:5px;
+    cursor:pointer;
+  }
+
+.p-data{
+    width: 70%;
+    height: 92vh;
+    background-color: transparent;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.input-card {
+  background-color: black;
+  border-radius: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+
+.input-card-label{
+  display: flex;
+  color: #9d9fa4;
+  margin-left: 10px;
+}
+
+
+.input-card h1{
+  color: aliceblue;
+  font-family: "Open Sans", sans-serif;
+  
+}
+
+.input-card input {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 300px;
+  height: 60px;
+  border-bottom-style: solid;
+  border-bottom-color: #9d9fa4;
+  margin-bottom: 5px;
+  margin-left: 25px;
+  margin-right: 25px;
+  border-width: 1px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: black;
+
+}
+
+.input-card-i{
+  border-style: solid;
+  margin: 4px;
+  padding: 4px;
+}
+
+
+input,
+select,
+textarea {
+    color: white;
+}
+
+textarea:focus,
+input:focus {
+    color: white;
+}
+
+input[type=date]{
+  color: #9d9fa4;
+  
+}
+.input-card-i label{
+    color: #7a7a7a;
+    margin-right: 24px;
+    margin-top: 22px;
+}
+
+.input-card-i select{
+    background-color: black;
+    height: 34px;
+    margin-top: 19px;
+}
+
+}
+
+@media only screen and (max-width : 1050px) {
+
+  .header {
+    /* background-image: url("gradient.png"); */
+    background: rgb(60,162,255);
+    background: linear-gradient(90deg, rgba(60,162,255,1) 0%, rgba(69,182,240,1) 37%, rgba(0,212,255,1) 100%);
+    height: 135vh;
+    width: 100%;
+    background-repeat: repeat-y;
+    background-size: cover;
+    /* position: absolute; */
+}
+.p-img{
+  width: auto;
+  height: 40vh;
+  padding-left: 5px;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-input {
+width:250px;
+padding:8px;
+background:white;
+border-radius: 2px;
+box-shadow: -3px -3px 7px rgba(94, 104, 121, 0.377),
+            3px 3px 7px rgba(94, 104, 121, 0.377);
+  
+}
+
+.form-input img {
+  width:100%;
+  display:none;
+  margin-bottom:15px;
+}
+
+.form-input input {
+  display:none;
+}
+.form-input label {
+  display:block;
+  width:45%;
+  height:25px;
+  margin-left: 25%;
+  line-height:30px;
+  text-align:center;
+  background:#1172c2;
+  color:#fff;
+  font-size:10px;
+  font-family:"Open Sans",sans-serif;
+  text-transform:Uppercase;
+  font-weight:600;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.p-data{
+  width: auto;
+  height: 92vh;
+  background-color: transparent;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+  padding: 20px;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+}
+
+.input-card {
+background-color: black;
+border-radius: 5px;
+padding-bottom: 5px;
+margin-bottom: 5px;
+}
+
+.input-card-label{
+display: flex;
+color: #9d9fa4;
+margin-left: 10px;
+}
+
+
+.input-card h1{
+color: aliceblue;
+font-family: "Open Sans", sans-serif;
+
+}
+
+.input-card input {
+font-family: Arial, Helvetica, sans-serif;
+width: 300px;
+height: 60px;
+border-bottom-style: solid;
+border-bottom-color: #9d9fa4;
+margin-bottom: 5px;
+margin-left: 25px;
+margin-right: 25px;
+border-width: 1px;
+border-top: none;
+border-left: none;
+border-right: none;
+background-color: black;
+
+}
+
+.input-card-i{
+border-style: solid;
+margin: 4px;
+padding: 4px;
+}
+
+.input-card-i label{
+    color: #7a7a7a;
+    margin-right: 24px;
+    margin-top: 22px;
+}
+
+.input-card-i select{
+    background-color: black;
+    height: 34px;
+    margin-top: 19px;
+}
+
+
+input,
+select,
+textarea {
+  color: white;
+}
+
+textarea:focus,
+input:focus {
+  color: white;
+}
+
+input[type=date]{
+color: #9d9fa4;
+
+}
+}
+
+
+
+@media only screen and (max-width:410px) {
+  
+  .header {
+    /* background-image: url("gradient.png"); */
+    background: rgb(60,162,255);
+    background: linear-gradient(90deg, rgba(60,162,255,1) 0%, rgba(69,182,240,1) 37%, rgba(0,212,255,1) 100%);
+    height: 135vh;
+    width: 100%;
+    background-repeat: repeat-y;
+    background-size: cover;
+    /* position: absolute; */
+}
+.p-img{
+  width: auto;
+  height: 40vh;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-input {
+width:250px;
+padding:8px;
+background:white;
+border-radius: 2px;
+box-shadow: -3px -3px 7px rgba(94, 104, 121, 0.377),
+            3px 3px 7px rgba(94, 104, 121, 0.377);
+  
+}
+
+.form-input img {
+  width:100%;
+  display:none;
+  margin-bottom:15px;
+}
+
+.form-input input {
+  display:none;
+}
+.form-input label {
+  display:block;
+  width:45%;
+  height:25px;
+  margin-left: 25%;
+  line-height:30px;
+  text-align:center;
+  background:#1172c2;
+  color:#fff;
+  font-size:10px;
+  font-family:"Open Sans",sans-serif;
+  text-transform:Uppercase;
+  font-weight:600;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.p-data{
+  width: auto;
+  height: 92vh;
+  background-color: transparent;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+  padding: 20px;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+}
+
+.input-card {
+background-color: black;
+border-radius: 5px;
+padding-bottom: 5px;
+margin-bottom: 5px;
+}
+
+.input-card-label{
+display: flex;
+color: #9d9fa4;
+margin-left: 10px;
+}
+
+
+.input-card h1{
+color: aliceblue;
+font-family: "Open Sans", sans-serif;
+
+}
+
+.input-card input {
+font-family: Arial, Helvetica, sans-serif;
+width: 200px;
+height: 60px;
+border-bottom-style: solid;
+border-bottom-color: #9d9fa4;
+margin-bottom: 5px;
+margin-left: 25px;
+margin-right: 25px;
+border-width: 1px;
+border-top: none;
+border-left: none;
+border-right: none;
+background-color: black;
+
+}
+
+.input-card-i{
+border-style: solid;
+margin: 4px;
+padding: 4px;
+}
+
+.input-card-i label{
+    color: #7a7a7a;
+    margin-right: 24px;
+    margin-top: 22px;
+}
+
+.input-card-i select{
+    background-color: black;
+    height: 34px;
+    margin-top: 19px;
+}
+
+
+input,
+select,
+textarea {
+  color: white;
+}
+
+textarea:focus,
+input:focus {
+  color: white;
+}
+
+input[type=date]{
+color: #9d9fa4;
+
+}
+}
+
+
+/* <!-- HTML !-->
+<button class="button-28" role="button">Button 28</button> */
+
+/* CSS */
+.button-28 {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #3B3B3B;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 40px;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action : manipulation;
+  width: 40%;
+  will-change: transform;
+}
+
+.button-28:disabled {
+  pointer-events: none;
+}
+
+.button-28:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.button-28:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+
+/* 
+.center {
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  } */
+
+
+  /* ###########################    FACULTY    ######################################### */
+
+
+  @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');  
+  section {  
+      padding: 0px 0;  
+  }  
+  section .section-title {  
+      text-align: center;  
+      color: #007b5e;  
+      margin-bottom: 50px;  
+      text-transform: uppercase;  
+  }  
+  #footer {  
+      background: black;  
+  }  
+  #footer h5 {  
+     padding-left: 10px;  
+      border-left: 3px solid #eeeeee;  
+      padding-bottom: 6px;  
+      margin-bottom: 20px;  
+      color:#ffffff;  
+  }  
+  #footer a {  
+      color: #ffffff;  
+      text-decoration: none !important;  
+      background-color: transparent;  
+  }  
+  #footer ul.social li {  
+      padding: 3px 0;  
+  }  
+  #footer ul.social li a i {  
+      margin-right: 5px;  
+      font-size:25px;  
+      -webkit-transition: .5s all ease;  
+      -moz-transition: .5s all ease;  
+      transition: .5s all ease;  
+  }  
+  #footer ul.social li:hover a i {  
+      font-size:30px;  
+      margin-top:-10px;  
+  }  
+  #footer ul.social li a  
+  {  
+      color:#ffffff;  
+  }  
+  #footer ul.social li a:hover {  
+      color:#eeeeee;  
+  }  
+  #footer ul.quick-links li a {  
+      color:#ffffff;  
+  }  
+  #footer ul.quick-links li {  
+      padding: 3px 0;  
+      -webkit-transition: .5s all ease;  
+      -moz-transition: .5s all ease;  
+      transition: .5s all ease;  
+  }  
+  #footer ul.quick-links li:hover {  
+      padding: 3px 0;  
+      margin-left:5px;  
+      font-weight:700;  
+  }  
+  #footer ul.quick-links li a i {  
+      margin-right: 5px;  
+  }  
+  #footer ul.quick-links li:hover a i {  
+      font-weight: 700;  
+  }  
+  @media (max-width:767px) {  
+  #footer h5 {  
+        padding-left: 0;  
+      border-left: transparent;  
+      padding-bottom: 0px;  
+      margin-bottom: 10px;  
+  }  
+  }  
+  

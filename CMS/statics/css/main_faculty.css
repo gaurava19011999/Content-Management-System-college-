@@ -1,0 +1,228 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.header {
+    /* background-image: url("gradient.png"); */
+    background: rgb(60,162,255);
+    background: linear-gradient(90deg, rgba(60,162,255,1) 0%, rgba(69,182,240,1) 37%, rgba(0,212,255,1) 100%);
+    height: 92vh;
+    width: 100%;
+    background-repeat: repeat-y;
+    background-size: cover;
+    display: flex;
+}
+
+.main{
+    background-color: black;
+    opacity: 0.5;
+    height: 100vh;
+    width: 100%;
+    display: block;
+}
+.mainInner{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+}
+.mainLeft{
+    height: 92vh;
+    width: 30%;
+    border: solid;
+    border-top: none;
+    border-left: none;
+    border-bottom: none;
+    border-width: 2px;
+    border-color: #eeeeee;
+}
+.mainRight{
+    height: 92vh;
+    width: 70%;
+    padding: 2% 8%;
+}
+.mainLeftHead{
+    height: 10vh;
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:  white;
+    border: solid;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-width: 1px
+}
+.mainLeftBottom{
+    height: 82vh;
+    width: 100%;
+    padding: 4px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.attClassList{
+    height: 10vh;
+    width:100%;
+    margin-bottom: 3px;
+    border: solid;
+    border-radius: 6px;
+    border-color: #eeeeee;
+    border-width: 1px;
+    align-items: center;
+    color: #7f7f7f;
+}
+.attClassList-1{
+    height: 50%;
+    width: 100%;
+    display: flex;
+}
+.attClassList-1-1{
+    height: 100%;
+    width:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.attClassList-2{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mainRightInner{
+    height: 85vh;
+    width: 100%;
+    padding: 4px;
+}
+a{
+    text-decoration: none;
+    display: flex;
+    justify-content: space-evenly;
+    color: #7f7f7f;
+}
+.anchor{
+    height: 100%;
+    width:33%;
+}
+.mainRightInnerData{
+    height: 12vh;
+    width: 100%;
+    margin-bottom: 3px;
+    border: solid;
+    border-color: white;
+    border-radius: 6px;
+    border-width: 1px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: #7f7f7f;
+}
+.mainRightInnerData:hover{
+    border-radius: 0px 6px 0px;
+}
+
+
+/* ########################    LIBRARY     ########################## */
+
+
+.library{
+    background-color: black;
+    opacity: 0.5;
+    height: 100vh;
+    width: 100%;
+    display: none;
+}
+
+
+
+
+  /* ###########################    FOOTER    ######################################### */
+
+
+  @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');  
+  section {  
+      padding: 0px 0;  
+  }  
+  section .section-title {  
+      text-align: center;  
+      color: #007b5e;  
+      margin-bottom: 50px;  
+      text-transform: uppercase;  
+  }  
+  #footer {  
+      background: black;  
+  }  
+  #footer h5 {  
+     padding-left: 10px;  
+      border-left: 3px solid #eeeeee;  
+      padding-bottom: 6px;  
+      margin-bottom: 20px;  
+      color:#ffffff;  
+  }  
+  #footer a {  
+      color: #ffffff;  
+      text-decoration: none !important;  
+      background-color: transparent;  
+  }  
+  #footer ul.social li {  
+      padding: 3px 0;  
+  }  
+  #footer ul.social li a i {  
+      margin-right: 5px;  
+      font-size:25px;  
+      -webkit-transition: .5s all ease;  
+      -moz-transition: .5s all ease;  
+      transition: .5s all ease;  
+  }  
+  #footer ul.social li:hover a i {  
+      font-size:30px;  
+      margin-top:-10px;  
+  }  
+  #footer ul.social li a  
+  {  
+      color:#ffffff;  
+  }  
+  #footer ul.social li a:hover {  
+      color:#eeeeee;  
+  }  
+  #footer ul.quick-links li a {  
+      color:#ffffff;  
+  }  
+  #footer ul.quick-links li {  
+      padding: 3px 0;  
+      -webkit-transition: .5s all ease;  
+      -moz-transition: .5s all ease;  
+      transition: .5s all ease;  
+  }  
+  #footer ul.quick-links li:hover {  
+      padding: 3px 0;  
+      margin-left:5px;  
+      font-weight:700;  
+  }  
+  #footer ul.quick-links li a i {  
+      margin-right: 5px;  
+  }  
+  #footer ul.quick-links li:hover a i {  
+      font-weight: 700;  
+  }  
+  @media (max-width:767px) {  
+  #footer h5 {  
+        padding-left: 0;  
+      border-left: transparent;  
+      padding-bottom: 0px;  
+      margin-bottom: 10px;  
+  }  
+  }  
+  
+
+
+  /* ######################  BUTTON    ############################ */
+
+  button{
+    border: none;
+    background-color: transparent;
+    color: #eeeeee;
+  }  

@@ -1,0 +1,572 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.header {
+    /* background-image: url("gradient.png"); */
+    background-image: linear-gradient(to right, #5bcdfa, #00ffff);
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background-color: black;
+    height: 327px;
+    width: 311px;
+    border-radius: 30px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    animation-name: card-animation;
+    animation-duration: 0.5s;
+}
+
+.message{
+    width: 100%;
+    opacity: 0.0;
+    animation-name: msg-dis;
+    animation-duration: 5s;
+    display: flex;
+    justify-content: center;
+}
+@keyframes msg-dis {
+    0%{
+        opacity: 0.0;
+    }
+    20%{
+        opacity: 0.0;
+    }
+    40%{
+        opacity: 1.0;
+    }
+    100%{
+        opacity: 0.0;
+    }
+}
+
+
+
+@keyframes card-animation {
+    0% {
+        border-radius: 400px;
+        height: 4px;
+        width: 3px;
+    }
+
+    100% {
+        border-radius: 30px;
+        height: 327px;
+        width: 311px;
+    }
+
+}
+
+.card a{
+    animation-name: content;
+    animation-duration: 1s;
+    text-decoration: none;
+}
+
+
+.card h1 {
+    color: #7a7a7a;
+    font-size: 40px;
+    animation-name: content;
+    animation-duration: 1s;
+}
+
+.card form {
+    padding: 10px;
+    display: contents;
+    align-items: center;
+    animation-name: content;
+    animation-duration: 1s;
+}
+
+.signin-card-input {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 250px;
+    height: 52px;
+    margin-bottom: 4px;
+    border-bottom-style: solid;
+    border-width: 1px;
+    padding: 5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: black;
+    animation-name: content;
+    animation-duration: 1s;
+}
+
+.button-33 {
+    background-color: #c2fbd7;
+    margin: 30px;
+    margin-top: 50px;
+    border-radius: 100px;
+    box-shadow: rgba(44, 177, 187, 0.2) 0 -25px 18px -14px inset, rgba(44, 187, 161, 0.15) 0 1px 2px, rgba(44, 187, 175, 0.15) 0 2px 4px, rgba(44, 80, 187, 0.15) 0 4px 8px, rgba(44, 187, 187, 0.15) 0 8px 16px, rgba(44, 168, 187, 0.15) 0 16px 32px;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    animation-name: content;
+    animation-duration: 1s;
+}
+
+.button-33:hover {
+    box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
+}
+
+
+@keyframes content {
+
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
+
+input,
+select,
+textarea {
+    color: white;
+
+}
+
+textarea:focus,
+input:focus {
+    color: white;
+}
+
+@media only screen and (max-width: 979px) {
+    .header {
+        height: 100vh;
+        width: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        background-color: black;
+        height: 460px;
+        width: 380px;
+        border-radius: 30px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        animation-name: card-animation;
+        animation-duration: 0.5s;
+    }
+
+
+
+    @keyframes card-animation {
+        0% {
+
+            height: 0px;
+
+        }
+
+        100% {
+
+            height: 460px;
+        }
+
+    }
+
+    .card h1 {
+        font-size: 35px
+    }
+
+    .signin-card-input {
+        width: 280px;
+        height: 40px;
+        margin-bottom: 30px;
+        border-bottom-style: solid;
+        border-width: 1px;
+        padding: 5px;
+    }
+
+    input,
+    select,
+    textarea {
+        color: white;
+        font-size: 20px;
+
+    }
+
+    textarea:focus,
+    input:focus {
+        color: white;
+        font-size: 20px;
+    }
+
+}
+
+@media only screen and (max-width: 850px) {
+
+    .header {
+        height: 100vh;
+        width: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        background-color: black;
+        height: 460px;
+        width: 380px;
+        border-radius: 30px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        animation-name: card-animation;
+        animation-duration: 0.5s;
+    }
+
+
+
+    @keyframes card-animation {
+        0% {
+
+            height: 0px;
+
+        }
+
+        100% {
+
+            height: 460px;
+        }
+
+    }
+
+    .card h1 {
+        font-size: 35px
+    }
+
+    .signin-card-input {
+        width: 280px;
+        height: 40px;
+        margin-bottom: 30px;
+        border-bottom-style: solid;
+        border-width: 1px;
+        padding: 5px;
+    }
+
+    input,
+    select,
+    textarea {
+        color: white;
+        font-size: 20px;
+
+    }
+
+    textarea:focus,
+    input:focus {
+        color: white;
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 639px) {
+    .header {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+    }
+
+    .card {
+        background-color: black;
+        height: 600px;
+        width: 500px;
+        border-radius: 0px 0px 30px 30px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        animation-name: card-animation;
+        animation-duration: 0.5s;
+    }
+
+
+
+    @keyframes card-animation {
+        0% {
+
+            height: 0px;
+
+        }
+
+        100% {
+
+            height: 600px;
+        }
+
+    }
+
+    .card h1 {
+        font-size: 50px
+    }
+
+    .signin-card-input {
+        width: 350px;
+        height: 70px;
+        margin-bottom: 20px;
+        border-bottom-style: solid;
+        border-width: 1px;
+        padding: 5px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .header {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+    }
+
+    .card {
+        background-color: black;
+        height: 600px;
+        width: 400px;
+        border-radius: 0px 0px 30px 30px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        animation-name: card-animation;
+        animation-duration: 0.5s;
+    }
+
+
+
+    @keyframes card-animation {
+        0% {
+
+            height: 0px;
+
+        }
+
+        100% {
+
+            height: 600px;
+        }
+
+    }
+
+    .card h1 {
+        font-size: 45px
+    }
+
+    .signin-card-input {
+        width: 290px;
+        height: 70px;
+        margin-bottom: 20px;
+        border-bottom-style: solid;
+        border-width: 1px;
+        padding: 5px;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .header {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+    }
+
+    .card {
+        background-color: black;
+        height: 480px;
+        width: 275px;
+        border-radius: 0px 0px 30px 30px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        animation-name: card-animation;
+        animation-duration: 0.5s;
+    }
+
+
+
+    @keyframes card-animation {
+        0% {
+
+            height: 0px;
+
+        }
+
+        100% {
+
+            height: 480px;
+        }
+
+    }
+
+    .card h1 {
+        font-size: 34px
+    }
+
+    .signin-card-input {
+        width: 260px;
+        height: 55px;
+        margin-bottom: 18px;
+        border-bottom-style: solid;
+        border-width: 1px;
+        padding: 5px;
+    }
+
+    input,
+    select,
+    textarea {
+        color: white;
+        font-size: 18px;
+
+    }
+
+    textarea:focus,
+    input:focus {
+        color: white;
+        font-size: 18px;
+    }
+}
+
+
+
+/* Footer */
+
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+section {
+    padding: 0px 0;
+}
+
+section .section-title {
+    text-align: center;
+    color: #007b5e;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+#footer {
+    background: black;
+}
+
+#footer h5 {
+    padding-left: 10px;
+    border-left: 3px solid #eeeeee;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+#footer a {
+    color: #ffffff;
+    text-decoration: none !important;
+    background-color: transparent;
+}
+
+#footer ul.social li {
+    padding: 3px 0;
+}
+
+#footer ul.social li a i {
+    margin-right: 5px;
+    font-size: 25px;
+    -webkit-transition: .5s all ease;
+    -moz-transition: .5s all ease;
+    transition: .5s all ease;
+}
+
+#footer ul.social li:hover a i {
+    font-size: 30px;
+    margin-top: -10px;
+}
+
+#footer ul.social li a {
+    color: #ffffff;
+}
+
+#footer ul.social li a:hover {
+    color: #eeeeee;
+}
+
+#footer ul.quick-links li a {
+    color: #ffffff;
+}
+
+#footer ul.quick-links li {
+    padding: 3px 0;
+    -webkit-transition: .5s all ease;
+    -moz-transition: .5s all ease;
+    transition: .5s all ease;
+}
+
+#footer ul.quick-links li:hover {
+    padding: 3px 0;
+    margin-left: 5px;
+    font-weight: 700;
+}
+
+#footer ul.quick-links li a i {
+    margin-right: 5px;
+}
+
+#footer ul.quick-links li:hover a i {
+    font-weight: 700;
+}
+
+@media (max-width:767px) {
+    #footer h5 {
+        padding-left: 0;
+        border-left: transparent;
+        padding-bottom: 0px;
+        margin-bottom: 10px;
+    }
+}
+
+h2 {
+    padding: 25px 0;
+    text-align: center;
+    color: #fff;
+    background: #7c8490;
+}
+
+.row hr {
+    color: white;
+}
+
+.popup {
+    display: none;
+}
+
+
+  

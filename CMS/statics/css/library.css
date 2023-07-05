@@ -1,0 +1,333 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.header {
+    /* background-image: url("gradient.png"); */
+    background: rgb(60,162,255);
+    background: linear-gradient(90deg, rgba(60,162,255,1) 0%, rgba(69,182,240,1) 37%, rgba(0,212,255,1) 100%);
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main{
+    background-color: black;
+    opacity: 0.5;
+    width:100%;
+    height:100%;
+    display: block
+}
+.addBook{
+    width: 100%;
+    height:100%;
+    display: none;
+    background-color: black;
+    opacity: 0.5;
+}
+.returnBook{
+    width: 100%;
+    height:100%;
+    display: none;
+    background-color: black;
+    opacity: 0.5;
+}
+.issueBook{
+    width: 100%;
+    height:100%;
+    display: none;
+    background-color: black;
+    opacity: 0.5;
+}
+.centre{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    width: 60%;
+    height:70%;
+    display: block;
+    text-align-last: center;
+    border:solid;
+    background-color: transparent;
+    border-radius: 10px;
+    border-color: aliceblue;
+}
+.card h1{
+    color: aliceblue;
+}
+.ps{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 45px;
+    margin-top: 30px;
+}
+.pos{
+    width: 50%;
+}
+.card input{
+    width: 80%;
+    height: 5vh;
+    background-color: transparent;
+    color: aliceblue;
+}
+.card label{
+    color: aliceblue;
+}
+.card select{
+    background-color: black;
+    color: aliceblue;
+}
+.list{
+    width: 100%;
+}
+.list select{
+    width: 70%;
+}
+
+.msg{
+    width: 100%;
+    opacity: 0.0;
+    animation-name: msg-dis;
+    animation-duration: 5 sec;
+}
+@keyframes msg-dis {
+    0%{
+        opacity: 0.0;
+    }
+    100%{
+        opacity:1.0;
+    }
+}
+
+
+/* ####################  BUTTON ################### */
+
+.button-33 {
+    background-color: #c2fbd7;
+    margin: 100px;
+    margin-top: 50px;
+    border-radius: 100px;
+    box-shadow: rgba(44, 177, 187, 0.2) 0 -25px 18px -14px inset, rgba(44, 187, 161, 0.15) 0 1px 2px, rgba(44, 187, 175, 0.15) 0 2px 4px, rgba(44, 80, 187, 0.15) 0 4px 8px, rgba(44, 187, 187, 0.15) 0 8px 16px, rgba(44, 168, 187, 0.15) 0 16px 32px;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    animation-name: signin-btn-animation;
+    animation-duration: 2s;
+}
+
+.button-33:hover {
+    box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
+}
+
+
+  /* Footer */
+
+  @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');  
+section {  
+    padding: 0px 0;  
+}  
+section .section-title {  
+    text-align: center;  
+    color: #007b5e;  
+    margin-bottom: 50px;  
+    text-transform: uppercase;  
+}  
+#footer {  
+    background: black;  
+}  
+#footer h5 {  
+   padding-left: 10px;  
+    border-left: 3px solid #eeeeee;  
+    padding-bottom: 6px;  
+    margin-bottom: 20px;  
+    color:#ffffff;  
+}  
+#footer a {  
+    color: #ffffff;  
+    text-decoration: none !important;  
+    background-color: transparent;  
+}  
+#footer ul.social li {  
+    padding: 3px 0;  
+}  
+#footer ul.social li a i {  
+    margin-right: 5px;  
+    font-size:25px;  
+    -webkit-transition: .5s all ease;  
+    -moz-transition: .5s all ease;  
+    transition: .5s all ease;  
+}  
+#footer ul.social li:hover a i {  
+    font-size:30px;  
+    margin-top:-10px;  
+}  
+#footer ul.social li a  
+{  
+    color:#ffffff;  
+}  
+#footer ul.social li a:hover {  
+    color:#eeeeee;  
+}  
+#footer ul.quick-links li a {  
+    color:#ffffff;  
+}  
+#footer ul.quick-links li {  
+    padding: 3px 0;  
+    -webkit-transition: .5s all ease;  
+    -moz-transition: .5s all ease;  
+    transition: .5s all ease;  
+}  
+#footer ul.quick-links li:hover {  
+    padding: 3px 0;  
+    margin-left:5px;  
+    font-weight:700;  
+}  
+#footer ul.quick-links li a i {  
+    margin-right: 5px;  
+}  
+#footer ul.quick-links li:hover a i {  
+    font-weight: 700;  
+}  
+@media (max-width:767px) {  
+#footer h5 {  
+      padding-left: 0;  
+    border-left: transparent;  
+    padding-bottom: 0px;  
+    margin-bottom: 10px;  
+}  
+}  
+h2 {  
+padding: 25px 0;  
+text-align: center;  
+color: #fff;  
+background: #7c8490;  
+}  
+
+.row hr{
+    color: white;
+}
+
+.popup{
+    display: none;
+}
+
+.popup-isu{
+    display: none;
+}
+
+.popup-rtn{
+    display: none;
+}
+
+.popup-add{
+    display: none;
+}
+.popup-table-ttl{
+    display: none;
+}
+.popup-table-isu{
+    display: none;
+}
+.popup-table-avl{
+    display: none;
+}
+.popup-table-exp{
+    display: none;
+}
+
+table{
+    width:100%;
+    table-layout: fixed;
+  }
+  .tbl-header{
+    background-color: rgba(255,255,255,0.3);
+   }
+  .tbl-content{
+    height:90%;
+    overflow-x:auto;
+    margin-top: 0px;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  th{
+    padding: 20px 15px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 12px;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  td{
+    padding: 15px;
+    text-align: left;
+    vertical-align:middle;
+    font-weight: 300;
+    font-size: 12px;
+    color: #fff;
+    border-bottom: solid 1px rgba(255,255,255,0.1);
+  }
+  
+  
+  /* demo styles */
+  
+  @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+  
+  
+  
+  /* follow me template */
+  .made-with-love {
+    margin-top: 40px;
+    padding: 10px;
+    clear: left;
+    text-align: center;
+    font-size: 10px;
+    font-family: arial;
+    color: #fff;
+  }
+  .made-with-love i {
+    font-style: normal;
+    color: #F50057;
+    font-size: 14px;
+    position: relative;
+    top: 2px;
+  }
+  .made-with-love a {
+    color: #fff;
+    text-decoration: none;
+  }
+  .made-with-love a:hover {
+    text-decoration: underline;
+  }
+  
+  
+  /* for custom scrollbar for webkit browser*/
+  
+  ::-webkit-scrollbar {
+      width: 6px;
+  } 
+  ::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  } 
+  ::-webkit-scrollbar-thumb {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  }

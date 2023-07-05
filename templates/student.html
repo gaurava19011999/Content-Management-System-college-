@@ -1,0 +1,179 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/student.css' %}">
+    <title>CMS</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/student.js' %}"></script>
+</head>
+
+<body class="p-0 m-0 border-0 bd-example ">
+
+    <!-- Example Code -->
+
+
+    <nav class="navbar   navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+              <img src="{% static 'Image/nav-icon.png'%}" alt="Bootstrap" width="30" height="24">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="#" tabindex="1" onclick="show('main')" ; return
+                      false;>Dashboard</a>
+                  </li>
+                  
+                  <li class="nav-item">
+                      <a class="nav-link " aria-current="page" href="#" tabindex="1" onclick="show('library')" ; return
+                          false;>Library</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link " aria-current="page" href="#" tabindex="1" onclick="show('accountDisplay')" ; return
+                          false;>Accounts</a>
+                  </li>
+              </ul>
+          </div>
+          <div class="d-flex">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                      <a class="nav-link" href="{% url 'logout' %}"  >Sign Out</a>
+                  </li>
+              </ul>
+          </div>
+          
+      </div>
+  </nav>
+    <!-- End Example Code -->
+    <div class="header">
+      <div class="main" id="main">
+        <div class="subList">
+          {% for s in sub %}
+            <div class="sub">
+                <div class="upper">
+                  <form method="POST" action="{% url 'studentSubject' %}">
+                    {% csrf_token %}
+                    <input type="hidden" value="{{password}}" name="password">
+                    <input type="hidden" value="{{s.0}}" name="sub">
+                    <button type="submit">{{s.0}}</button>
+                  </form>
+                </div>
+                <div class="lower"><form method="POST" action="{% url 'enroll' %}">
+                  {% csrf_token %}
+                  <input type="hidden" value="{{s.0}}" name="sub">
+                  <input type="hidden" value="{{password}}" name="password">
+                  <input type="hidden" value="{{email}}" name="email">
+                  <button type="submit">Enroll Me</button>
+                </form></div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>  
+          <div class="libraryDisplay" id = "library">
+          <div class="library" >
+            <div class="libraryLeft">
+                <div class="libraryLeftTop">
+                    <div class="libraryLeftTopIssue"><h5>Issue</h5><br><h5>22</h5></div>
+                    <div class="libraryLeftTopFine"><h5>Fine</h5><br><h5>2</h5></div>
+                </div>
+                <div class="libraryLeftBottom">
+                    <div class="head">
+                    <div class="headName">Name</div><div class="headAuthor">Author</div><div class="headAvailable">Available</div>
+                        
+                    
+                    </div>
+                    <div class="libraryLeftBottomContent">
+                      {% for bk in book %}
+                    <div class="libraryBook">
+                        <div class="libraryBookName">{{bk.0}}</div><div class="libraryBookAuthor">{{bk.1}}</div><div class="libraryBookAvailable">{{bk.2}}</div>
+                    </div>
+                    {% endfor %}
+                    </div>
+                </div>
+                <div class="cross">
+                  <a href="#" onclick="hide('library')" >&#10006</a>
+                  </div>
+            </div>
+            <div class="libraryRight">
+                {% comment %} <div class="libraryNotify"></div>
+                <div class="libraryNotify"></div> {% endcomment %}
+                
+            </div>
+           
+        </div>
+      </div>
+          <div class="accountDisplay" id="accountDisplay">
+            <div class="feeSummary">
+                <div class="feeSummaryTop">
+                   <div class="feeSummaryTopContent">
+                    <h3>Amount</h3>
+                    <h4>{{fees.0.0}}</h4>
+                   </div>
+                   <div class="feeSummaryTopContent">
+                    <h3>Paid</h3>
+                    <h4>{{fees.0.1}}</h4>
+                   </div>
+                   <div class="feeSummaryTopContent">
+                    <h3>Remain</h3>
+                    <h4>{{fees.0.2}}</h4>
+                   </div> 
+                </div>
+                <div class="feeSummaryBottom">
+                  {% for acc in acc_details %}
+                    <div class="feeSummaryBottomContent">
+                        <div class="fsbcdate"><h4>Date : {{acc.1}}</h4></div>
+                        <div class="fsbcAmt"><h5>Year : {{info.0.sem}}</h5><h5>Amount : {{acc.0}}</h5></div>
+                    </div>
+                  {% endfor %}
+                </div>
+                <div class="cross">
+                <a href="#" onclick="hide('accountDisplay')" >&#10006</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <div class="footer">
+        <section id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-4">
+                        <ul class="list-unstyled list-inline social text-center">
+                            <li class="list-inline-item"> <a href="#"> <i class="fa fa-facebook"> </i> </a> </li>
+                            <li class="list-inline-item"> <a href="#"> <i class="fa fa-twitter"> </i> </a> </li>
+                            <li class="list-inline-item"> <a href="#"> <i class="fa fa-instagram"> </i> </a> </li>
+                            <li class="list-inline-item"> <a href="#"> <i class="fa fa-google-plus"> </i> </a> </li>
+                            <li class="list-inline-item"> <a href="#"> <i class="fa fa-envelope"> </i> </a> </li>
+                        </ul>
+                    </div>
+                    <hr>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                        <p class="h6"> 2021 | All right Reversed. <a class="text-green ml-2" href="#" target="_blank">
+                                Gaurav Kumar Singh </a> </p>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,1815 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"> </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"> </script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/registrar.css' %}">
+    <title>CMS</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/registrar.js' %}"></script>
+</head>
+
+<body class="p-0 m-0 border-0 bd-example ">
+
+    <!-- Example Code -->
+
+
+    <nav class="navbar   navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'Image/nav-icon.png' %}" alt="Bootstrap" width="30" height="24">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="#" onclick="show('faculty')" ; return
+                            false;>Faculty</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="#" onclick="show('record')" ; return
+                            false;>Record</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="#" onclick="show('new-admission')" ; return
+                            false;>Admission</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="d-flex">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Sign Out</a>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    </nav>
+    <!-- End Example Code -->
+    <div class="header">
+        <div class="new-admission" id="new-admission">
+            <div class="top-bar">
+                <div  class="gav">
+                    
+                    <a  aria-current="page" href="#" onclick="show('mca')" ; return
+                            false;>MCA</a>
+                </div>
+                <div  class="gav">
+                    
+                    <a  aria-current="page" href="#" onclick="show('mba')" ; return
+                            false;>MBA</a>
+                </div>
+                <div  class="gav">
+                    
+                    <a  aria-current="page" href="#" onclick="show('bca')" ; return
+                            false;>BCA</a>
+                </div>
+                <div  class="gav">
+                    
+                    <a  aria-current="page" href="#" onclick="show('bba')" ; return
+                            false;>BBA</a>
+                </div>
+                <div  class="gav">
+                    
+                    <a  aria-current="page" href="#" onclick="show('bcom')" ; return
+                            false;>B.COM</a>
+                </div>
+                <div  class="gav">
+                    
+                    <a  aria-current="page" href="#" onclick="show('llb')" ; return
+                            false;>LLB</a>
+                </div>
+                <div  class="gav">
+                    
+                    <a  aria-current="page" href="#" onclick="show('ballb')" ; return
+                            false;>BA.LLB</a>
+                </div>
+                <div  class="gav">
+                    
+                    <a  aria-current="page" href="#" onclick="show('bed')" ; return
+                            false;>B.ed</a>
+                </div>
+                <div  class="gav">
+                    
+                    <a  aria-current="page" href="#" onclick="show('bpharma')" ; return
+                            false;>B.pharma</a>
+                </div>
+                <div  class="gav">
+                    
+                    <a  aria-current="page" href="#" onclick="show('dpharma')" ; return
+                            false;>D.pharma</a>
+                </div>
+                
+            </div>
+            <div class="result" id="mca">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Course</th>
+                                <th>Registartion Amount</th>
+                                <th>Approval Status</th>
+                                <th>Change Approval</th>
+                                
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {%for i in data_mca%}
+                                <tr>
+                                    {%for j in i%}
+                                        <td>
+                                            
+                                            {{j}}
+                                        </td>
+                                    
+                                    
+                                    {%endfor%}
+                                    <td>
+                                        <form action="{%url 'admission_apl'%}" method='POST'>
+                                            {% csrf_token %}
+                                            <input type="hidden" name="email" value="{{i.0}}">
+                                            <div class="pay-0">
+                                            <button class="button-7" role="button">Change</button>
+                                            </div>
+                                        </form>
+                                    </td>
+                                </tr>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="result" id="mba">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Course</th>
+                                <th>Registartion Amount</th>
+                                <th>Approval Status</th>
+                                <th>Change Approval</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {%for i in data_mba%}
+                                <tr>
+                                    {%for j in i%}
+                                        <td>{{j}}</td>
+                                    {% endfor %}
+                                </tr>
+                                <td>
+                                    <form action="{%url 'admission_apl'%}" method='POST'>
+                                        {% csrf_token %}
+                                        <input type="hidden" name="email" value="{{i.0}}">
+                                        <div class="pay-0">
+                                        <button class="button-7" role="button">Change</button>
+                                        </div>
+                                    </form>
+                                </td>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="result" id="bca">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Course</th>
+                                <th>Registartion</th>
+                                <th>Approval Status</th>
+                                <th>Change Approval</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {%for i in data_bca%}
+                                <tr>
+                                    {%for j in i%}
+                                        <td>{{j}}</td>
+                                    {% endfor %}
+                                </tr>
+                                <td>
+                                    <form action="{%url 'admission_apl'%}" method='POST'>
+                                        {% csrf_token %}
+                                        <input type="hidden" name="email" value="{{i.0}}">
+                                        <div class="pay-0">
+                                        <button class="button-7" role="button">Change</button>
+                                        </div>
+                                    </form>
+                                </td>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="result" id="bba">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Course</th>
+                                <th>Registartion Amount</th>
+                                <th>Approval Status</th>
+                                <th>Change Approval</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {%for i in data_bba%}
+                                <tr>
+                                    {%for j in i%}
+                                        <td>{{j}}</td>
+                                    {% endfor %}
+                                </tr>
+                                <td>
+                                    <form action="{%url 'admission_apl'%}" method='POST'>
+                                        {% csrf_token %}
+                                        <input type="hidden" name="email" value="{{i.0}}">
+                                        <div class="pay-0">
+                                        <button class="button-7" role="button">Change</button>
+                                        </div>
+                                    </form>
+                                </td>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="result" id="llb">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Course</th>
+                                <th>Registartion Amount</th>
+                                <th>Approval Status</th>
+                                <th>Change Approval</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {%for i in data_llb%}
+                                <tr>
+                                    {%for j in i%}
+                                        <td>{{j}}</td>
+                                    {% endfor %}
+                                </tr>
+                                <td>
+                                    <form action="{%url 'admission_apl'%}" method='POST'>
+                                        {% csrf_token %}
+                                        <input type="hidden" name="email" value="{{i.0}}">
+                                        <div class="pay-0">
+                                        <button class="button-7" role="button">Change</button>
+                                        </div>
+                                    </form>
+                                </td>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="result" id="ballb">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Course</th>
+                                <th>Registartion Amount</th>
+                                <th>Approval Status</th>
+                                <th>Change Approval</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {%for i in data_ballb%}
+                                <tr>
+                                    {%for j in i%}
+                                        <td>{{j}}</td>
+                                    {% endfor %}
+                                </tr>
+                                <td>
+                                    <form action="{%url 'admission_apl'%}" method='POST'>
+                                        {% csrf_token %}
+                                        <input type="hidden" name="email" value="{{i.0}}">
+                                        <div class="pay-0">
+                                        <button class="button-7" role="button">Change</button>
+                                        </div>
+                                    </form>
+                                </td>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="result" id="bcom">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Course</th>
+                                <th>Registartion Amount</th>
+                                <th>Approval Status</th>
+                                <th>Change Approval</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {%for i in data_bcom%}
+                                <tr>
+                                    {%for j in i%}
+                                        <td>{{j}}</td>
+                                    {% endfor %}
+                                </tr>
+                                <td>
+                                    <form action="{%url 'admission_apl'%}" method='POST'>
+                                        {% csrf_token %}
+                                        <input type="hidden" name="email" value="{{i.0}}">
+                                        <div class="pay-0">
+                                        <button class="button-7" role="button">Change</button>
+                                        </div>
+                                    </form>
+                                </td>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="result" id="bed">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Course</th>
+                                <th>Registartion Amount</th>
+                                <th>Approval Status</th>
+                                <th>Change Approval</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {%for i in data_bed%}
+                                <tr>
+                                    {%for j in i%}
+                                        <td>{{j}}</td>
+                                    {% endfor %}
+                                </tr>
+                                <td>
+                                    <form action="{%url 'admission_apl'%}" method='POST'>
+                                        {% csrf_token %}
+                                        <input type="hidden" name="email" value="{{i.0}}">
+                                        <div class="pay-0">
+                                        <button class="button-7" role="button">Change</button>
+                                        </div>
+                                    </form>
+                                </td>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="result" id="dpharma">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Course</th>
+                                <th>Registartion Amount</th>
+                                <th>Approval Status</th>
+                                <th>Change Approval</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {%for i in data_dpharma%}
+                                <tr>
+                                    {%for j in i%}
+                                        <td>{{j}}</td>
+                                    {% endfor %}
+                                </tr>
+                                <td>
+                                    <form action="{%url 'admission_apl'%}" method='POST'>
+                                        {% csrf_token %}
+                                        <input type="hidden" name="email" value="{{i.0}}">
+                                        <div class="pay-0">
+                                        <button class="button-7" role="button">Change</button>
+                                        </div>
+                                    </form>
+                                </td>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="result" id="bpharma">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Course</th>
+                                <th>Registartion Amount</th>
+                                <th>Approval Status</th>
+                                <th>Change Approval</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {%for i in data_dpharma%}
+                                <tr>
+                                    {%for j in i%}
+                                        <td>{{j}}</td>
+                                    {% endfor %}
+                                    
+                                </tr>
+                                <td>
+                                    <form action="{%url 'admission_apl'%}" method='POST'>
+                                        {% csrf_token %}
+                                        <input type="hidden" name="email" value="{{i.0}}">
+                                        <div class="pay-0">
+                                        <button class="button-7" role="button">Change</button>
+                                        </div>
+                                    </form>
+                                </td>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+        </div>
+        <div class="new-admission" id="record">
+            <div class="top-bar">
+                <div  class="gav">
+                    
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('nav-mca')" ; return
+                            false;>MCA</a>
+                </div>
+                <div  class="gav">
+                    
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('nav-mba')" ; return
+                            false;>MBA</a>
+                </div>
+                <div  class="gav">
+                    
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('nav-bca')" ; return
+                            false;>BCA</a>
+                </div>
+                <div  class="gav">
+                    
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('nav-bba')" ; return
+                            false;>BBA</a>
+                </div>
+                <div  class="gav">
+                    
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('nav-bcom')" ; return
+                            false;>B.COM</a>
+                </div>
+                <div  class="gav">
+                    
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('nav-llb')" ; return
+                            false;>LLB</a>
+                </div>
+                <div  class="gav">
+                    
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('nav-ballb')" ; return
+                            false;>BA.LLB</a>
+                </div>
+                <div  class="gav">
+                    
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('nav-bed')" ; return
+                            false;>B.ed</a>
+                </div>
+                <div  class="gav">
+                    
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('nav-bpharma')" ; return
+                            false;>B.pharma</a>
+                </div>
+                <div  class="gav">
+                    
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('nav-dpharma')" ; return
+                            false;>D.pharma</a>
+                </div>
+                
+            </div>
+            <div class="toop-bar" id="nav-mca">
+                <div class="top-bar">
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('mca-1')" ; return false;>1</a>
+                </div>
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('mca-2')" ; return=false;>2</a>
+                </div></div>
+            </div>
+            <div class="toop-bar" id="nav-mba">
+                <div class="top-bar">
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('mba-1')" ; return=false;>1</a>
+                </div>
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('mba-2')" ; return=false;>2</a>
+                </div></div>
+            </div>
+            <div class="toop-bar" id="nav-bed">
+                <div class="top-bar">
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('bed-1')" ; return=false;>1</a>
+                </div>
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('bed-2')" ; return=false;>2</a>
+                </div></div>
+            </div>
+            <div class="toop-bar" id="nav-dpharma">
+                <div class="top-bar">
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('dpharma-1')" ; return=false;>1</a>
+                </div>
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('dpharma-2')" ; return=false;>2</a>
+                </div></div>
+            </div>
+            <div class="toop-bar" id="nav-bca">
+                <div class="top-bar">
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('bca-1')" ; return=false;>1</a>
+                </div>
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('bca-2')" ; return=false;>2</a>
+                </div>
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('bca-3')" ; return=false;>3</a>
+                </div></div>
+            </div>  
+            <div class="toop-bar" id="nav-bba">
+                <div class="top-bar">
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('bba-1')" ; return=false;>1</a>
+                </div>
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('bba-2')" ; return=false;>2</a>
+                </div>
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('bba-3')" ; return=false;>3</a>
+                </div></div>
+            </div> 
+            <div class="toop-bar" id="nav-bcom">
+                <div class="top-bar">
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('bcom-1')" ; return=false;>1</a>
+                </div>
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('bcom-2')" ; return=false;>2</a>
+                </div>
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('bcom-3')" ; return=false;>3</a>
+                </div></div>
+            </div> 
+            <div class="toop-bar" id="nav-llb">
+                <div class="top-bar">
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('llb-1')" ; return=false;>1</a>
+                </div>
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('llb-2')" ; return=false;>2</a>
+                </div>
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('llb-3')" ; return=false;>3</a>
+                </div>
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('llb-4')" ; return=false;>4</a>
+                </div></div>
+            </div>   
+            <div class="toop-bar" id="nav-bpharma">
+                <div class="top-bar">
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('bpharma-1')" ; return=false;>1</a>
+                </div>
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('bpharma-2')" ; return=false;>2</a>
+                </div>
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('bpharma-3')" ; return=false;>3</a>
+                </div>
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('bpharma-4')" ; return=false;>4</a>
+                </div></div>
+            </div>   
+            <div class="toop-bar" id="nav-ballb">
+                <div class="top-bar">
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('ballb-1')" ; return=false;>1</a>
+                </div>
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('ballb-2')" ; return=false;>2</a>
+                </div>
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('ballb-3')" ; return=false;>3</a>
+                </div>
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('ballb-4')" ; return=false;>4</a>
+                </div>
+                <div  class="gav">
+                    <a  aria-current="page" href="#" tabindex="1" onclick="show('ballb-5')" ; return=false;>5</a>
+                </div>
+            </div>
+            </div>   
+            <div class="result" id="mca-1">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'MCA' in acc %}
+                                    {% if 1 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="mca-2">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'MCA' in acc %}
+                                    {% if 2 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="mba-1">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'MBA' in acc %}
+                                    {% if 1 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="mba-2">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'MBA' in acc %}
+                                    {% if 2 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="bca-1">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'BCA' in acc %}
+                                    {% if 1 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="bca-2">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'BCA' in acc %}
+                                    {% if 2 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="bca-3">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'BCA' in acc %}
+                                    {% if 3 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="bba-1">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'BBA' in acc %}
+                                    {% if 1 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="bba-2">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'BBA' in acc %}
+                                    {% if 2 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="bba-3">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'BBA' in acc %}
+                                    {% if 3 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="bcom-1">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'B.COM' in acc %}
+                                    {% if 1 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="bcom-2">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'B.COM' in acc %}
+                                    {% if 2 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="bcom-3">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'B.COM' in acc %}
+                                    {% if 3 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="llb-1">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'LLB' in acc %}
+                                    {% if 1 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="llb-2">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'LLB' in acc %}
+                                    {% if 2 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="llb-3">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'LLB' in acc %}
+                                    {% if 3 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="llb-4">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'LLB' in acc %}
+                                    {% if 4 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="ballb-1">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'BA.LLB' in acc %}
+                                    {% if 1 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                            </tbody></table></div>
+            </div>
+            <div class="result" id="ballb-2">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'BA.LLB' in acc %}
+                                    {% if 2 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="ballb-3">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'BA.LLB' in acc %}
+                                    {% if 3 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="ballb-4">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'BA.LLB' in acc %}
+                                    {% if 4 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="ballb-5">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'BA.LLB' in acc %}
+                                    {% if 5 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="bpharma-1">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'B.pharma' in acc %}
+                                    {% if 1 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="bpharma-2">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'B.pharma' in acc %}
+                                    {% if 2 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="bpharma-3">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'B.pharma' in acc %}
+                                    {% if 3 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="bpharma-4">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'B.pharma' in acc %}
+                                    {% if 4 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="dpharma-1">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'D.pharma' in acc %}
+                                    {% if 1 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="dpharma-2">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'D.pharma' in acc %}
+                                    {% if 2 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="bed-1">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'B.ed' in acc %}
+                                    {% if 1 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            <div class="result" id="bed-2">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>Course</th><th>year</th><th>Total Fee</th><th>Paid</th><th>Remaining</th></tr></thead>
+                    </table></div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            {% for acc in user_info_account %}
+                            <tr>
+                                    {% if 'B.ed' in acc %}
+                                    {% if 2 in acc %}
+                                    <td>{{acc.0}}</td>
+                                    {% for ua in user_account %}
+                                        {% if acc.0 in ua %}
+                                            <td>{{ua.1}}</td><td>{{ua.2}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <td>{{acc.1}}</td><td>{{acc.2}}</td>
+                                    {% for fe in fees %}
+                                        {% if acc.0 in fe %}
+                                            <td>{{fe.1}}</td><td>{{fe.2}}</td><td>{{fe.3}}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}{% endif %}
+                                </tr>
+                                {% endfor %}
+                        </tbody></table></div>
+            </div>
+            
+            </div>
+            <div class="new-admission" id="faculty" style="display:block">
+                <div class="top-bar">
+                    <div  class="gav">
+                        
+                        <a  aria-current="page" href="#" tabindex="1" onclick="show('it')" ; return
+                                false;>IT</a>
+                    </div>
+                    <div  class="gav">
+                        
+                        <a  aria-current="page" href="#" tabindex="1" onclick="show('mgmt')" ; return
+                                false;>MANAGEMENT</a>
+                    </div>
+                    <div  class="gav">
+                        
+                        <a  aria-current="page" href="#" tabindex="1" onclick="show('commerce')" ; return
+                                false;>COMMERCE</a>
+                    </div>
+                    <div  class="gav">
+                        
+                        <a  aria-current="page" href="#" tabindex="1" onclick="show('law')" ; return
+                                false;>LAW</a>
+                    </div>
+                    <div  class="gav">
+                        
+                        <a  aria-current="page" href="#" tabindex="1" onclick="show('edu')" ; return
+                                false;>EDUCATION</a>
+                    </div>
+                    <div  class="gav">
+                        
+                        <a  aria-current="page" href="#" tabindex="1" onclick="show('phar')" ; return
+                                false;>PHARMATICAL</a>
+                    </div>
+                    
+                    
+                </div>
+            
+            <div class="result" id="it">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>More Details</th></thead>
+                        </table></div>
+                        <div class="tbl-content">
+                            <table cellpadding="0" cellspacing="0" border="0">
+                                <tbody>
+                                    {% for fc in faculty %}
+                                    <tr>
+                                {% for fci1 in fci   %}
+                                    {% for fci2 in fci1 %}
+                                        {% if fc.0 in fci2.0 %}
+                                            {% if 'IT' in fci2.1 %}
+                                                <td>{{fc.0}}</td><td>{{fc.1}}</td><td>{{fc.2}}</td>
+                                                <td>
+                                                <form method="POST" action="facultyDetails">
+                                                    {% csrf_token %}
+                                                    <input type="hidden" value="{{fc.0}}" name="detail-email">
+                                                    <input type="hidden" value="{{password}}" name="pass">
+                                                    <button type="submit" class="button">More Detail</button>
+                                                </form>
+                                            </td>
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endfor %}
+                            </tr>
+                            {% endfor %}    
+                    </tbody></table></div>
+            </div>
+            <div class="result" id="mgmt">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>More Details</th></thead>
+                        </table></div>
+                        <div class="tbl-content">
+                            <table cellpadding="0" cellspacing="0" border="0">
+                                <tbody>
+                                    {% for fc in faculty %}
+                                    <tr>
+                                    {% for fci1 in fci   %}
+                                        {% for fci2 in fci1 %}
+                                            {% if fc.0 in fci2.0 %}
+                                                {% if 'MANAGEMENT' in fci2.1 %}
+                                                    <td>{{fc.0}}</td><td>{{fc.1}}</td><td>{{fc.2}}</td>
+                                                    <td>
+                                                        <form method="POST" action="facultyDetails">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" value="{{fc.0}}" name="detail-email">
+                                                            <input type="hidden" value="{{password}}" name="pass">
+                                                            <button type="submit" class="button">More Detail</button>
+                                                        </form>
+                                                    </td>
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endfor %}
+                                </tr>
+                                {% endfor %}  
+                    </tbody></table></div>
+            </div>
+            <div class="result" id="commerce">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>More Details</th></thead>
+                        </table></div>
+                        <div class="tbl-content">
+                            <table cellpadding="0" cellspacing="0" border="0">
+                                <tbody>
+                                    {% for fc in faculty %}
+                                    <tr>
+                                    {% for fci1 in fci   %}
+                                        {% for fci2 in fci1 %}
+                                            {% if fc.0 in fci2.0 %}
+                                                {% if 'COMMERCE' in fci2.1 %}
+                                                    <td>{{fc.0}}</td><td>{{fc.1}}</td><td>{{fc.2}}</td><td>
+                                                        <form method="POST" action="facultyDetails">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" value="{{fc.0}}" name="detail-email">
+                                                            <input type="hidden" value="{{password}}" name="pass">
+                                                            <button type="submit" class="button">More Detail</button>
+                                                        </form>
+                                                    </td>
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endfor %}
+                                </tr>
+                                {% endfor %}  
+                    </tbody></table></div>
+            </div>
+            <div class="result" id="phar">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>More Details</th></thead>
+                        </table></div>
+                        <div class="tbl-content">
+                            <table cellpadding="0" cellspacing="0" border="0">
+                                <tbody>
+                                    {% for fc in faculty %}
+                                    <tr>
+                                    {% for fci1 in fci   %}
+                                        {% for fci2 in fci1 %}
+                                            {% if fc.0 in fci2.0 %}
+                                                {% if 'PHARMATICAL' in fci2.1 %}
+                                                    <td>{{fc.0}}</td><td>{{fc.1}}</td><td>{{fc.2}}</td>
+                                                    <td>
+                                                        <form method="POST" action="facultyDetails">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" value="{{fc.0}}" name="detail-email">
+                                                            <input type="hidden" value="{{password}}" name="pass">
+                                                            <button type="submit" class="button">More Detail</button>
+                                                        </form>
+                                                    </td>
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endfor %}
+                                </tr>
+                                {% endfor %}  
+                    </tbody></table></div>
+            </div>
+            <div class="result" id="law">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>More Details</th></thead>
+                        </table></div>
+                        <div class="tbl-content">
+                            <table cellpadding="0" cellspacing="0" border="0">
+                                <tbody>
+                                    {% for fc in faculty %}
+                                    <tr>
+                                    {% for fci1 in fci   %}
+                                        {% for fci2 in fci1 %}
+                                            {% if fc.0 in fci2.0 %}
+                                                {% if 'LAW' in fci2.1 %}
+                                                    <td>{{fc.0}}</td><td>{{fc.1}}</td><td>{{fc.2}}</td>
+                                                    <td>
+                                                        <form method="POST" action="facultyDetails">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" value="{{fc.0}}" name="detail-email">
+                                                            <input type="hidden" value="{{password}}" name="pass">
+                                                            <button type="submit" class="button">More Detail</button>
+                                                        </form>
+                                                    </td>
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endfor %}
+                                </tr>
+                                {% endfor %}  
+                    </tbody></table></div>
+            </div>
+            <div class="result" id="edu">
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead><tr><th>Email</th><th>First Name</th><th>Last Name</th><th>More Details</th></thead>
+                        </table></div>
+                        <div class="tbl-content">
+                            <table cellpadding="0" cellspacing="0" border="0">
+                                <tbody>
+                                    {% for fc in faculty %}
+                                    <tr>
+                                    {% for fci1 in fci   %}
+                                        {% for fci2 in fci1 %}
+                                            {% if fc.0 in fci2.0 %}
+                                                {% if 'EDUCATION' in fci2.1 %}
+                                                    <td>{{fc.0}}</td><td>{{fc.1}}</td><td>{{fc.2}}</td>
+                                                    <td>
+                                                        <form method="POST" action="{% url 'facultyDetails' %}">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" value="{{fc.0}}" name="detail-email">
+                                                            <input type="hidden" value="{{password}}" name="pass">
+                                                            <button type="submit" class="button">More Detail</button>
+                                                        </form>
+                                                    </td>
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endfor %}
+                                </tr>
+                                {% endfor %}  
+                    </tbody></table></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <section id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-4">
+                        <ul class="list-unstyled list-inline social text-center">
+                            <li class="list-inline-item"> <a href="#"> <i class="fa fa-facebook"> </i> </a> </li>
+                            <li class="list-inline-item"> <a href="#"> <i class="fa fa-twitter"> </i> </a> </li>
+                            <li class="list-inline-item"> <a href="#"> <i class="fa fa-instagram"> </i> </a> </li>
+                            <li class="list-inline-item"> <a href="#"> <i class="fa fa-google-plus"> </i> </a> </li>
+                            <li class="list-inline-item"> <a href="#"> <i class="fa fa-envelope"> </i> </a> </li>
+                        </ul>
+                    </div>
+                    <hr>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                        <p class="h6"> 2021 | All right Reversed. <a class="text-green ml-2" href="#" target="_blank">
+                                Gaurav Kumar Singh </a> </p>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
